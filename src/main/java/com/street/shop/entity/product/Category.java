@@ -1,4 +1,4 @@
-package com.street.shop.entity;
+package com.street.shop.entity.product;
 
 
 import lombok.Data;
@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 商品类别
@@ -16,7 +17,6 @@ import java.util.Date;
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
-
 
     //主键
     @Id
@@ -32,16 +32,20 @@ public class Category implements Serializable {
     private int parentId;
 
     //图片
-    @Column(name = "img", columnDefinition = "VARCHAR(255) ")
+    @Column(name = "img", columnDefinition = "VARCHAR(512) ")
     private String img;
+
+    //顺序
+    @Column(name = "order_flag", columnDefinition = "int not null default 0  ")
+    private int orderFlag;
 
     //删除标志
     @Column(name = "deleted", columnDefinition = "int not null default 0  ")
     private int deleted;
 
-    //修改时间
-    @Column(name = "updated_time", columnDefinition = "datetime ")
-    private Date updatedTime;
+    //规格列表
+    @Transient
+    private List<String> specs;
 
     //创建时间
     @Column(name = "created_time", columnDefinition = "datetime not null ")

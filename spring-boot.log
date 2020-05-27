@@ -1,332 +1,273 @@
-2020-05-24 19:22:33.122  INFO 23648 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on SKY-20170507BGY with PID 23648 (E:\work\StreetShop\target\classes started by Administrator in E:\work\StreetShop)
-2020-05-24 19:22:33.149  INFO 23648 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
-2020-05-24 19:22:35.074  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:22:35.077  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:22:35.128  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 0 repository interfaces.
-2020-05-24 19:22:35.137  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:22:35.138  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:22:35.142  INFO 23648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1ms. Found 0 repository interfaces.
-2020-05-24 19:22:35.694  INFO 23648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f7ab76f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-24 19:22:36.196  INFO 23648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
-2020-05-24 19:22:36.229  INFO 23648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-24 19:22:36.229  INFO 23648 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2020-05-24 19:22:36.238  INFO 23648 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2020-05-24 19:22:36.238  INFO 23648 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
-2020-05-24 19:22:36.238  INFO 23648 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-05-24 19:22:36.239  INFO 23648 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-05-24 19:22:37.292  INFO 23648 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
-2020-05-24 19:22:37.570  WARN 23648 --- [main] o.a.tomcat.util.scan.StandardJarScanner  : Failed to scan [file:/C:/Users/Administrator/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1/jaxb-api.jar] from classloader hierarchy
-
-java.io.FileNotFoundException: C:\Users\Administrator\.m2\repository\com\sun\xml\bind\jaxb-impl\2.1\jaxb-api.jar (系统找不到指定的文件。)
-	at java.util.zip.ZipFile.open(Native Method) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:225) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:155) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:166) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:130) ~[na:1.8.0_151]
-	at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:164) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFileUrlJar.<init>(JarFileUrlJar.java:65) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFactory.newInstance(JarFactory.java:49) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.process(StandardJarScanner.java:374) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.processURLs(StandardJarScanner.java:309) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.doScanClassPath(StandardJarScanner.java:266) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.scan(StandardJarScanner.java:229) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scanJars(TldScanner.java:262) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scan(TldScanner.java:104) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.JasperInitializer.onStartup(JasperInitializer.java:83) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5125) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:928) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:455) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:415) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) [spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at com.street.shop.ShopApplication.main(ShopApplication.java:10) [classes/:na]
-
-2020-05-24 19:22:37.573  WARN 23648 --- [main] o.a.tomcat.util.scan.StandardJarScanner  : Failed to scan [file:/C:/Users/Administrator/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1/activation.jar] from classloader hierarchy
-
-java.io.FileNotFoundException: C:\Users\Administrator\.m2\repository\com\sun\xml\bind\jaxb-impl\2.1\activation.jar (系统找不到指定的文件。)
-	at java.util.zip.ZipFile.open(Native Method) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:225) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:155) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:166) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:130) ~[na:1.8.0_151]
-	at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:164) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFileUrlJar.<init>(JarFileUrlJar.java:65) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFactory.newInstance(JarFactory.java:49) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.process(StandardJarScanner.java:374) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.processURLs(StandardJarScanner.java:309) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.doScanClassPath(StandardJarScanner.java:266) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.scan(StandardJarScanner.java:229) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scanJars(TldScanner.java:262) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scan(TldScanner.java:104) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.JasperInitializer.onStartup(JasperInitializer.java:83) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5125) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:928) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:455) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:415) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) [spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at com.street.shop.ShopApplication.main(ShopApplication.java:10) [classes/:na]
-
-2020-05-24 19:22:37.575  WARN 23648 --- [main] o.a.tomcat.util.scan.StandardJarScanner  : Failed to scan [file:/C:/Users/Administrator/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1/jsr173_1.0_api.jar] from classloader hierarchy
-
-java.io.FileNotFoundException: C:\Users\Administrator\.m2\repository\com\sun\xml\bind\jaxb-impl\2.1\jsr173_1.0_api.jar (系统找不到指定的文件。)
-	at java.util.zip.ZipFile.open(Native Method) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:225) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:155) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:166) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:130) ~[na:1.8.0_151]
-	at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:164) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFileUrlJar.<init>(JarFileUrlJar.java:65) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFactory.newInstance(JarFactory.java:49) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.process(StandardJarScanner.java:374) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.processURLs(StandardJarScanner.java:309) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.doScanClassPath(StandardJarScanner.java:266) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.scan(StandardJarScanner.java:229) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scanJars(TldScanner.java:262) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scan(TldScanner.java:104) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.JasperInitializer.onStartup(JasperInitializer.java:83) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5125) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:928) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:455) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:415) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) [spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at com.street.shop.ShopApplication.main(ShopApplication.java:10) [classes/:na]
-
-2020-05-24 19:22:37.577  WARN 23648 --- [main] o.a.tomcat.util.scan.StandardJarScanner  : Failed to scan [file:/C:/Users/Administrator/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1/jaxb1-impl.jar] from classloader hierarchy
-
-java.io.FileNotFoundException: C:\Users\Administrator\.m2\repository\com\sun\xml\bind\jaxb-impl\2.1\jaxb1-impl.jar (系统找不到指定的文件。)
-	at java.util.zip.ZipFile.open(Native Method) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:225) ~[na:1.8.0_151]
-	at java.util.zip.ZipFile.<init>(ZipFile.java:155) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:166) ~[na:1.8.0_151]
-	at java.util.jar.JarFile.<init>(JarFile.java:130) ~[na:1.8.0_151]
-	at org.apache.tomcat.util.compat.JreCompat.jarFileNewInstance(JreCompat.java:164) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFileUrlJar.<init>(JarFileUrlJar.java:65) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.JarFactory.newInstance(JarFactory.java:49) ~[tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.process(StandardJarScanner.java:374) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.processURLs(StandardJarScanner.java:309) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.doScanClassPath(StandardJarScanner.java:266) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.tomcat.util.scan.StandardJarScanner.scan(StandardJarScanner.java:229) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scanJars(TldScanner.java:262) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.TldScanner.scan(TldScanner.java:104) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.jasper.servlet.JasperInitializer.onStartup(JasperInitializer.java:83) [tomcat-embed-jasper-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5125) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1377) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1367) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266) [na:1.8.0_151]
-	at java.util.concurrent.FutureTask.run(FutureTask.java) [na:1.8.0_151]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134) [na:1.8.0_151]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:902) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:928) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:455) [tomcat-embed-core-9.0.16.jar:9.0.16]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:415) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:154) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) [spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
-	at com.street.shop.ShopApplication.main(ShopApplication.java:10) [classes/:na]
-
-2020-05-24 19:22:37.581  INFO 23648 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2020-05-24 19:22:37.585  INFO 23648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-05-24 19:22:37.586  INFO 23648 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4306 ms
-2020-05-24 19:22:37.865  INFO 23648 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2020-05-26 17:51:53.780  INFO 24452 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on DESKTOP-EOUSUNJ with PID 24452 (D:\work\StreetShop\target\classes started by 86135 in D:\work\StreetShop)
+2020-05-26 17:51:53.786  INFO 24452 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
+2020-05-26 17:51:54.240  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:51:54.242  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:51:54.255  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2020-05-26 17:51:54.259  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:51:54.259  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:51:54.263  INFO 24452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
+2020-05-26 17:51:54.468  INFO 24452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8d5d9963] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-26 17:51:54.685  INFO 24452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
+2020-05-26 17:51:54.701  INFO 24452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-26 17:51:54.701  INFO 24452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-26 17:51:54.705  INFO 24452 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NetSarang\Xshell 6\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_151\bin;D:\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Users\86135\AppData\Local\Microsoft\WindowsApps;;.]
+2020-05-26 17:51:54.784  INFO 24452 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-26 17:51:54.784  INFO 24452 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 968 ms
+2020-05-26 17:51:54.897  INFO 24452 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2020-05-24 19:22:38.121  INFO 23648 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2020-05-24 19:22:38.126  INFO 23648 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2020-05-24 19:22:38.365  INFO 23648 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2020-05-24 19:22:38.574  INFO 23648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-24 19:22:38.835  INFO 23648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-24 19:22:38.849  INFO 23648 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-05-24 19:22:39.274  INFO 23648 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-24 19:22:39.711  INFO 23648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-24 19:22:39.772  WARN 23648 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-24 19:22:40.886  INFO 23648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8066 (http) with context path ''
-2020-05-24 19:22:40.893  INFO 23648 --- [main] com.street.shop.ShopApplication          : Started ShopApplication in 8.915 seconds (JVM running for 11.115)
-2020-05-24 19:26:04.607  INFO 24536 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on SKY-20170507BGY with PID 24536 (E:\work\StreetShop\target\classes started by Administrator in E:\work\StreetShop)
-2020-05-24 19:26:04.610  INFO 24536 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
-2020-05-24 19:26:05.664  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:26:05.667  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:26:05.694  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 repository interfaces.
-2020-05-24 19:26:05.703  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:26:05.704  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:26:05.710  INFO 24536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1ms. Found 0 repository interfaces.
-2020-05-24 19:26:06.105  INFO 24536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$797bf020] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-24 19:26:06.470  INFO 24536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
-2020-05-24 19:26:06.500  INFO 24536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-24 19:26:06.500  INFO 24536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2020-05-24 19:26:06.508  INFO 24536 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2020-05-24 19:26:06.509  INFO 24536 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
-2020-05-24 19:26:06.509  INFO 24536 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-05-24 19:26:06.509  INFO 24536 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-05-24 19:26:07.552  INFO 24536 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
-2020-05-24 19:26:07.664  INFO 24536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-05-24 19:26:07.664  INFO 24536 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2969 ms
-2020-05-24 19:26:07.869  INFO 24536 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2020-05-26 17:51:54.992  INFO 24452 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-05-26 17:51:54.993  INFO 24452 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-26 17:51:55.094  INFO 24452 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-26 17:51:55.172  INFO 24452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-26 17:51:56.237 ERROR 24452 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLSyntaxErrorException: Unknown database 'shop'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:207) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.2.0.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:94) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:179) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:119) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.street.shop.ShopApplication.main(ShopApplication.java:10) ~[classes/:na]
+
+2020-05-26 17:51:56.245  WARN 24452 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : Unknown database 'shop'
+2020-05-26 17:51:56.251  INFO 24452 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-05-26 17:51:56.263  INFO 24452 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000422: Disabling contextual LOB creation as connection was null
+2020-05-26 17:51:56.673  INFO 24452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-26 17:51:57.675 ERROR 24452 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLSyntaxErrorException: Unknown database 'shop'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:207) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) [HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) [HikariCP-3.2.0.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:329) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:939) [hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) [spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) [spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.street.shop.ShopApplication.main(ShopApplication.java:10) ~[classes/:na]
+
+2020-05-26 17:51:57.677  WARN 24452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1049, SQLState: 42000
+2020-05-26 17:51:57.677 ERROR 24452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unknown database 'shop'
+2020-05-26 17:51:57.684  WARN 24452 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+2020-05-26 17:51:57.685  INFO 24452 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-26 17:51:57.697  INFO 24452 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-26 17:51:57.703 ERROR 24452 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1762) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.3.RELEASE.jar:2.1.3.RELEASE]
+	at com.street.shop.ShopApplication.main(ShopApplication.java:10) [classes/:na]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:402) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1821) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758) ~[spring-beans-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:69) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:329) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:939) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	... 20 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'shop'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:207) ~[mysql-connector-java-8.0.13.jar:8.0.13]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.2.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.2.0.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	... 35 common frames omitted
+
+2020-05-26 17:53:14.458  INFO 11712 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on DESKTOP-EOUSUNJ with PID 11712 (D:\work\StreetShop\target\classes started by 86135 in D:\work\StreetShop)
+2020-05-26 17:53:14.460  INFO 11712 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
+2020-05-26 17:53:14.875  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:53:14.877  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:53:14.890  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2020-05-26 17:53:14.895  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:53:14.895  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:53:14.899  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
+2020-05-26 17:53:15.100  INFO 11712 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2765b9ec] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-26 17:53:15.304  INFO 11712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
+2020-05-26 17:53:15.318  INFO 11712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-26 17:53:15.319  INFO 11712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-26 17:53:15.323  INFO 11712 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NetSarang\Xshell 6\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_151\bin;D:\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Users\86135\AppData\Local\Microsoft\WindowsApps;;.]
+2020-05-26 17:53:15.402  INFO 11712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-26 17:53:15.402  INFO 11712 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 915 ms
+2020-05-26 17:53:15.513  INFO 11712 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2020-05-24 19:26:08.062  INFO 24536 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2020-05-24 19:26:08.064  INFO 24536 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2020-05-24 19:26:08.207  INFO 24536 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2020-05-24 19:26:08.313  INFO 24536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-24 19:26:08.477  INFO 24536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-24 19:26:08.487  INFO 24536 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-05-24 19:26:08.707  INFO 24536 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-24 19:26:08.971  INFO 24536 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-24 19:26:09.020  WARN 24536 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-24 19:26:09.685  INFO 24536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8066 (http) with context path ''
-2020-05-24 19:26:09.689  INFO 24536 --- [main] com.street.shop.ShopApplication          : Started ShopApplication in 6.109 seconds (JVM running for 7.458)
-2020-05-24 19:39:12.654  INFO 16640 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on SKY-20170507BGY with PID 16640 (E:\work\StreetShop\target\classes started by Administrator in E:\work\StreetShop)
-2020-05-24 19:39:12.658  INFO 16640 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
-2020-05-24 19:39:13.739  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:39:13.741  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:39:13.760  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
-2020-05-24 19:39:13.772  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-05-24 19:39:13.772  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-05-24 19:39:13.779  INFO 16640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2ms. Found 0 repository interfaces.
-2020-05-24 19:39:14.198  INFO 16640 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c69718d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-05-24 19:39:14.620  INFO 16640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
-2020-05-24 19:39:14.652  INFO 16640 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-05-24 19:39:14.652  INFO 16640 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
-2020-05-24 19:39:14.660  INFO 16640 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.21]
-2020-05-24 19:39:14.660  INFO 16640 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
-2020-05-24 19:39:14.660  INFO 16640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-05-24 19:39:14.660  INFO 16640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-05-24 19:39:15.717  INFO 16640 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
-2020-05-24 19:39:15.838  INFO 16640 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-05-24 19:39:15.838  INFO 16640 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3017 ms
-2020-05-24 19:39:16.023  INFO 16640 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2020-05-26 17:53:15.611  INFO 11712 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-05-26 17:53:15.612  INFO 11712 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-26 17:53:15.690  INFO 11712 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-26 17:53:15.763  INFO 11712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-26 17:53:15.837  INFO 11712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-26 17:53:15.844  INFO 11712 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-05-26 17:53:16.476  INFO 11712 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-26 17:53:16.641  INFO 11712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-26 17:53:16.677  WARN 11712 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-26 17:53:17.206  INFO 11712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8066 (http) with context path ''
+2020-05-26 17:53:17.208  INFO 11712 --- [main] com.street.shop.ShopApplication          : Started ShopApplication in 3.046 seconds (JVM running for 3.793)
+2020-05-26 17:59:16.786  INFO 20064 --- [main] com.street.shop.ShopApplication          : Starting ShopApplication on DESKTOP-EOUSUNJ with PID 20064 (D:\work\StreetShop\target\classes started by 86135 in D:\work\StreetShop)
+2020-05-26 17:59:16.788  INFO 20064 --- [main] com.street.shop.ShopApplication          : No active profile set, falling back to default profiles: default
+2020-05-26 17:59:17.203  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:59:17.204  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:59:17.218  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2020-05-26 17:59:17.222  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-26 17:59:17.222  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-26 17:59:17.226  INFO 20064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1ms. Found 0 repository interfaces.
+2020-05-26 17:59:17.432  INFO 20064 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6eb080ee] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-26 17:59:17.633  INFO 20064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8066 (http)
+2020-05-26 17:59:17.647  INFO 20064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-26 17:59:17.648  INFO 20064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-26 17:59:17.652  INFO 20064 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NetSarang\Xshell 6\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_151\bin;D:\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Users\86135\AppData\Local\Microsoft\WindowsApps;;.]
+2020-05-26 17:59:17.727  INFO 20064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-26 17:59:17.728  INFO 20064 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 912 ms
+2020-05-26 17:59:17.842  INFO 20064 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2020-05-24 19:39:16.084  INFO 16640 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2020-05-24 19:39:16.087  INFO 16640 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2020-05-24 19:39:16.306  INFO 16640 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2020-05-24 19:39:16.483  INFO 16640 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-05-24 19:39:16.865  INFO 16640 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-05-24 19:39:16.876  INFO 16640 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-05-24 19:39:18.017  INFO 16640 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-05-24 19:39:18.318  INFO 16640 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-05-24 19:39:18.358  WARN 16640 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-05-24 19:39:19.226  INFO 16640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8066 (http) with context path ''
-2020-05-24 19:39:19.230  INFO 16640 --- [main] com.street.shop.ShopApplication          : Started ShopApplication in 8.394 seconds (JVM running for 9.726)
+2020-05-26 17:59:17.934  INFO 20064 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-05-26 17:59:17.935  INFO 20064 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-05-26 17:59:18.013  INFO 20064 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-05-26 17:59:18.088  INFO 20064 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-26 17:59:18.164  INFO 20064 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-26 17:59:18.171  INFO 20064 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-05-26 17:59:18.675  INFO 20064 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-05-26 17:59:18.818  INFO 20064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-26 17:59:18.844  WARN 20064 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-05-26 17:59:19.353  INFO 20064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8066 (http) with context path ''
+2020-05-26 17:59:19.355  INFO 20064 --- [main] com.street.shop.ShopApplication          : Started ShopApplication in 2.879 seconds (JVM running for 3.6)
