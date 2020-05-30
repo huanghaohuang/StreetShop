@@ -5,7 +5,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 商品信息
@@ -14,10 +16,9 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "product",
-        uniqueConstraints={@UniqueConstraint(columnNames={"shop_id", "category_id", "name"})},
+        uniqueConstraints={@UniqueConstraint(columnNames={"shop_id", "unique_code"})},
         indexes=@Index(name="product_index", columnList="shop_id, category_id"))
 public class Product implements Serializable {
-
 
     //主键
     @Id
@@ -28,6 +29,10 @@ public class Product implements Serializable {
     //商户id
     @Column(name = "shop_id", columnDefinition = "INT not null default 0 ")
     private int shopId;
+
+    //唯一编号
+    @Column(name = "unique_code", columnDefinition = "VARCHAR(32) not null default '' ")
+    private String uniqueCode;
 
     //商品分类Id
     @Column(name = "category_id", columnDefinition = "INT not null default 0 ")
@@ -77,8 +82,12 @@ public class Product implements Serializable {
     @Column(name = "type", columnDefinition = "INT not null default 0 ")
     private int type;
 
+    //规格列表
+    @Transient
+    private List<ProductUnit> productUnitList = new ArrayList<>();
+
     //添加时间
-    @Column(name = "create_time", columnDefinition = "datetime not null ")
-    private Date createTime;
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
 
 }

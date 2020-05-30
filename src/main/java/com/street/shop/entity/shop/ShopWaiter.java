@@ -36,7 +36,7 @@ public class ShopWaiter implements Serializable {
     @Column(name = "deleted", columnDefinition = "INT not null default 0 ")
     private int deleted;
 
-    @Column(name = "create_time", columnDefinition = "datetime not null ")
-    private Date createTime;
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
 
 }

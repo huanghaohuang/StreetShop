@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Entity
@@ -37,5 +38,8 @@ public class ProductSales implements Serializable {
     //金额
     @Column(name = "amount", columnDefinition = "INT not null default 0 ")
     private int amount;
+
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
 
 }

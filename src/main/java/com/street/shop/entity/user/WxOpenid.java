@@ -36,7 +36,7 @@ public class WxOpenid implements Serializable {
     private String openId;
 
     //时间
-    @Column(name = "create_time", columnDefinition = "datetime not null ")
-    private Date createTime;
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
 
 }

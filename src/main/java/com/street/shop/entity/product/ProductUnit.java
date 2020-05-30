@@ -14,8 +14,8 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "product_unit",
-        uniqueConstraints={@UniqueConstraint(columnNames={"product_id", "unites"})},
-        indexes=@Index(name="product_unit_index", columnList="product_id, shop_id"))
+        uniqueConstraints={@UniqueConstraint(columnNames={"product_id", "unique_code"})},
+        indexes=@Index(name="product_unit_index", columnList="product_id"))
 public class ProductUnit implements Serializable {
 
     //主键
@@ -44,17 +44,16 @@ public class ProductUnit implements Serializable {
     @Column(name = "offline_price", columnDefinition = "INT not null default 0 ")
     private int offlinePrice;
 
-    //状态(1:缺货)
+    //状态(0:正常 1:缺货)
     @Column(name = "status", columnDefinition = "INT not null default 0 ")
     private int status;
 
     //规格唯一编号
-    @Column(name = "unit_id", columnDefinition = "VARCHAR(128) not null default '' ")
-    private String unitId;
+    @Column(name = "unique_code", columnDefinition = "VARCHAR(128) not null default '' ")
+    private String uniqueCode;
 
     //添加时间
-    @Column(name = "create_time", columnDefinition = "datetime not null ")
-    private Date createTime;
-
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
 
 }

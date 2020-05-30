@@ -25,10 +25,11 @@ public class CategoryService {
 
     /**
      * 添加类别
-     * @param name              类别名称
-     * @param parentId          父节点(目前支持两层类别层次)
-     * @param img               类别图片
-     * @param orderFlag         显示排列序号
+     *
+     * @param name      类别名称
+     * @param parentId  父节点(目前支持两层类别层次)
+     * @param img       类别图片
+     * @param orderFlag 显示排列序号
      * @return
      */
     public String addCategory(String name, int parentId, String img, int orderFlag) {
@@ -48,12 +49,17 @@ public class CategoryService {
             img = "";
         }
         try {
+            int categoryId = getCategoryIdByName(name);
+            if(categoryId > 0){
+                result = "已经存在同名的类别!";
+                return result;
+            }
             Category category = new Category();
             category.setName(name);
             category.setParentId(parentId);
             category.setImg(img);
             category.setOrderFlag(orderFlag);
-            category.setCreatedTime(new Date());
+            category.setCreatedAt(new Date());
             category.setDeleted(0);
             categoryDao.save(category);
             result = ConstDefine.SUCCESS;
@@ -110,19 +116,17 @@ public class CategoryService {
                 category.setImg(updateInfo.get("img").toString());
             }
             if (updateInfo.get("parentId") != null) {
-                try{
+                try {
                     int parentId = Integer.parseInt(updateInfo.get("parentId").toString());
                     category.setParentId(parentId);
-                }
-                catch(Exception e){
+                } catch (Exception e) {
                 }
             }
             if (updateInfo.get("orderFlag") != null) {
-                try{
+                try {
                     int orderFlag = Integer.parseInt(updateInfo.get("orderFlag").toString());
                     category.setOrderFlag(orderFlag);
-                }
-                catch(Exception e){
+                } catch (Exception e) {
                 }
             }
             categoryDao.save(category);
@@ -184,6 +188,50 @@ public class CategoryService {
             categoryList = new ArrayList<>();
         }
         return categoryList;
+    }
+
+
+    /**
+     * 获取类别名字
+     */
+    public List<String> getParentCategoryNameList(int categoryId) {
+        List<String> categoryNameList = new ArrayList<>();
+        helper(categoryId, categoryNameList);
+        return categoryNameList;
+    }
+
+    private void helper(int categoryId, List<String> categoryNameList) {
+        Category category = getCategoryById(categoryId);
+        if (category != null) {
+            categoryNameList.add(category.getName());
+            if (category.getParentId() > 0) {
+                helper(category.getParentId(), categoryNameList);
+            }
+        }
+    }
+
+    //根据类别名字获取id
+    public int getCategoryIdByName(String name) {
+        int categoryId = 0;
+        if (name == null || name.length() <= 0) {
+            return categoryId;
+        }
+        try {
+            Specification<Category> spec = (Specification<Category>) (root, crite, cb) -> {
+                List<Predicate> pr = new ArrayList<>();
+                pr.add(cb.equal(root.get("name").as(String.class), name));
+                return cb.and(pr.toArray(new Predicate[pr.size()]));
+            };
+            Optional<Category> categoryOptional = categoryDao.findOne(spec);
+            if (categoryOptional != null && categoryOptional.isPresent()) {
+                Category category = categoryOptional.get();
+                if(category != null) {
+                    categoryId = category.getId();
+                }
+            }
+        } catch (Exception e) {
+        }
+        return categoryId;
     }
 
 

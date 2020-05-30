@@ -32,4 +32,13 @@ public class ConstDefine {
 
 	public static final String DEL_USER_FAIL_CODE = "104";	//删除用户失败
 
+
+	public static final int productNameCellIndex = 0;
+	public static final int productUniqueCodeCellIndex = 1;
+
+	public static final int unitSpecUniqueCodeCellIndex = 3;
+	public static final int priceCellIndex = 4;
+	public static final int offlinePriceCellIndex = 5;
+
+
 }

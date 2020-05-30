@@ -15,7 +15,8 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "category")
+@Table(name = "category",
+        uniqueConstraints={@UniqueConstraint(columnNames={"name"})})
 public class Category implements Serializable {
 
     //主键
@@ -48,7 +49,7 @@ public class Category implements Serializable {
     private List<String> specs;
 
     //创建时间
-    @Column(name = "created_time", columnDefinition = "datetime not null ")
-    private Date createdTime;
+    @Column(name = "created_at", columnDefinition = "datetime not null ")
+    private Date createdAt;
 
 }

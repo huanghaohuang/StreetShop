@@ -41,7 +41,7 @@ public class CategorySpecService {
             CategorySpec categorySpec = new CategorySpec();
             categorySpec.setCategoryId(categoryId);
             categorySpec.setSpec(spec);
-            categorySpec.setCreatedTime(new Date());
+            categorySpec.setCreatedAt(new Date());
             categorySpecDao.save(categorySpec);
             result = ConstDefine.SUCCESS;
         } catch (Exception e) {

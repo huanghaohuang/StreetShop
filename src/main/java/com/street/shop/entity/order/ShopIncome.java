@@ -51,7 +51,8 @@ public class ShopIncome implements Serializable {
     private String reason;
 
     //添加时间
-    @Column(name = "add_time", columnDefinition = "datetime not null ")
-    private Date addTime;
+    @Column(name = "create_at", columnDefinition = "datetime not null ")
+    private Date createAt;
+
 
 }

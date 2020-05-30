@@ -29,7 +29,7 @@ public class CategorySpec implements Serializable {
     private String spec;
 
     //创建时间
-    @Column(name = "created_time", columnDefinition = "datetime not null ")
-    private Date createdTime;
+    @Column(name = "created_at", columnDefinition = "datetime not null ")
+    private Date createdAt;
 
 }
