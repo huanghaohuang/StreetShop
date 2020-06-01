@@ -32,6 +32,12 @@ public class ConstDefine {
 
 	public static final String DEL_USER_FAIL_CODE = "104";	//删除用户失败
 
+	public static final String GET_USER_ID_BY_TOKEN_FAIL_CODE = "110";	//根据令牌获取用户id失败
+
+	public static final String ADD_PRODUCT_FAIL_CODE = "112";
+
+	public static final String ADD_PRODUCT_UNIT_FAIL_CODE = "113";
+
 
 	public static final int productNameCellIndex = 0;
 	public static final int productUniqueCodeCellIndex = 1;

@@ -11,7 +11,6 @@ import com.street.shop.pojo.Unit;
 import com.street.shop.pojo.UnitSpec;
 import com.street.shop.util.ExcelUtil;
 import com.street.shop.util.ProductUtil;
-import io.swagger.annotations.ApiOperation;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -21,12 +20,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.persistence.criteria.Predicate;
-import javax.validation.Valid;
 import java.io.InputStream;
 import java.util.*;
 
@@ -67,7 +62,7 @@ public class ProductService {
         }
         if (uniqueCode == null || uniqueCode.length() <= 0) {
             //生成一个唯一编号
-            uniqueCode = UUID.randomUUID().toString().replace("-", "");
+            uniqueCode = getUniqueCode();
         } else {
             //查询是否存在同一个编号的产品
             Product product = getProductByUniqueCode(shopId, uniqueCode);
@@ -140,7 +135,7 @@ public class ProductService {
                 }
             } else {
                 //系统分配一个唯一编号
-                unitUniqueCode = UUID.randomUUID().toString().replace("-", "");
+                unitUniqueCode = getUniqueCode();
             }
 
             ProductUnit productUnit = new ProductUnit();
@@ -166,7 +161,7 @@ public class ProductService {
                 productUnit.setProductId(productId);
                 productUnitService.addProductUnit(productUnit);
             }
-            result = ConstDefine.SUCCESS;
+            result = ConstDefine.SUCCESS + product.getProductId();
         } catch (Exception e) {
             result = e.getMessage();
         }
@@ -182,7 +177,15 @@ public class ProductService {
         }
         try {
             productDao.save(product);
-            //这里没有保存规格明细
+            //产品id
+            int productId = product.getProductId();
+            List<ProductUnit> productUnitList = product.getProductUnitList();
+            if (productUnitList != null) {
+                for (ProductUnit productUnit : productUnitList) {
+                    productUnit.setProductId(productId);
+                    productUnitService.addProductUnit(productUnit);
+                }
+            }
             result = ConstDefine.SUCCESS;
         } catch (Exception e) {
             result = e.getMessage();
@@ -207,6 +210,9 @@ public class ProductService {
             Optional<Product> productOptional = productDao.findOne(spec);
             if (productOptional != null && productOptional.isPresent()) {
                 product = productOptional.get();
+                //获取商品的规格列表
+                List<ProductUnit> productUnitList = productUnitService.getProductUnitList(product.getProductId());
+                product.setProductUnitList(productUnitList);
             }
         } catch (Exception e) {
         }
@@ -225,7 +231,9 @@ public class ProductService {
             Optional<Product> productOptional = productDao.findById(productId);
             if (productOptional != null && productOptional.isPresent()) {
                 product = productOptional.get();
-                //获取规格详情
+                //获取商品的规格列表
+                List<ProductUnit> productUnitList = productUnitService.getProductUnitList(product.getProductId());
+                product.setProductUnitList(productUnitList);
             }
         } catch (Exception e) {
         }
@@ -309,7 +317,7 @@ public class ProductService {
                                     cell = row.getCell(ConstDefine.unitSpecUniqueCodeCellIndex);
                                     String unitSpecUniqueCode = ExcelUtil.getCellValue(cell);
                                     if (unitSpecUniqueCode == null || unitSpecUniqueCode.length() <= 0) {
-                                        unitSpecUniqueCode = UUID.randomUUID().toString().replace("-", "");
+                                        unitSpecUniqueCode = getUniqueCode();
                                     }
                                     productUnit.setUniqueCode(unitSpecUniqueCode);
                                     cell = row.getCell(ConstDefine.priceCellIndex);
@@ -354,7 +362,7 @@ public class ProductService {
                             cell = row.getCell(ConstDefine.productUniqueCodeCellIndex);
                             String productUniquecode = ExcelUtil.getCellValue(cell);
                             if (productUniquecode == null || productUniquecode.length() <= 0) {
-                                productUniquecode = UUID.randomUUID().toString().replace("-", "");
+                                productUniquecode = getUniqueCode();
                             }
                             product.setUniqueCode(productUniquecode);
                             product.setLogo("");
@@ -367,7 +375,7 @@ public class ProductService {
                             cell = row.getCell(ConstDefine.unitSpecUniqueCodeCellIndex);
                             String unitSpecUniqueCode = ExcelUtil.getCellValue(cell);
                             if (unitSpecUniqueCode == null || unitSpecUniqueCode.length() <= 0) {
-                                unitSpecUniqueCode = UUID.randomUUID().toString().replace("-", "");
+                                unitSpecUniqueCode = getUniqueCode();
                             }
                             productUnit.setUniqueCode(unitSpecUniqueCode);
                             cell = row.getCell(ConstDefine.priceCellIndex);
@@ -572,11 +580,6 @@ public class ProductService {
                         int minOfflinePrice = 0;
                         int maxOfflinePrice = 0;
                         for (ProductUnit productUnit : productUnitList) {
-                            int productUnitId = productUnit.getProductUnitId();
-                            if (productUnitId <= 0) {
-                                result = "产品规格id为空!";
-                                return result;
-                            }
                             if (productUnit.getProductId() != productId) {
                                 result = "产品规格信息中的产品id不等于产品id!";
                                 return result;
@@ -606,7 +609,6 @@ public class ProductService {
                         product.setMaxPrice(maxPrice);
                         product.setMinOfflinePrice(minOfflinePrice);
                         product.setMaxOfflinePrice(maxOfflinePrice);
-
                         product.setProductUnitList(productUnitList);
                         productUnitListChange = true;
                     }
@@ -709,7 +711,6 @@ public class ProductService {
         return result;
     }
 
-
     /**
      * 给商品批量添加规格信息
      */
@@ -735,7 +736,7 @@ public class ProductService {
             for (Unit unit : unitList) {
                 String unitSpecUniqueCode = unit.getUniqueCode();
                 if (unitSpecUniqueCode == null || unitSpecUniqueCode.length() <= 0) {
-                    unitSpecUniqueCode = UUID.randomUUID().toString().replace("-", "");
+                    unitSpecUniqueCode = getUniqueCode();
                 } else {
                     //判断是否已经存在同一个编号的规格信息
                     ProductUnit productUnit = productUnitService.getProductUnitByUniqueCode(shopId, unitSpecUniqueCode);
@@ -806,6 +807,11 @@ public class ProductService {
             result = e.getMessage();
         }
         return result;
+    }
+
+
+    public static String getUniqueCode() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
 

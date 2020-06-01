@@ -12,8 +12,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "discount",
-        uniqueConstraints={@UniqueConstraint(columnNames={"shop_id", "unique_code"})},
-        indexes=@Index(name="discount_index", columnList="product_id, category_id"))
+        indexes=@Index(name="discount_index", columnList="product_id"))
 public class Discount implements Serializable {
 
     //主键

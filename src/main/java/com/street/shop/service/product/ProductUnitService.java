@@ -68,6 +68,21 @@ public class ProductUnitService {
     }
 
 
+
+    public List<ProductUnit> getProductUnitList(int productId) {
+        List<ProductUnit> productUnitList = new ArrayList<>();
+        try {
+            Specification<ProductUnit> spec = (Specification<ProductUnit>) (root, crite, cb) -> {
+                List<Predicate> pr = new ArrayList<>();
+                pr.add(cb.equal(root.get("productId").as(Integer.class), productId));
+                return cb.and(pr.toArray(new Predicate[pr.size()]));
+            };
+            productUnitList = productUnitDao.findAll(spec);
+        } catch (Exception e) {
+        }
+        return productUnitList;
+    }
+
     //根据id获取商品规格信息
     public ProductUnit getProductUnitById(int productUnitId) {
         ProductUnit productUnit = null;
@@ -116,9 +131,6 @@ public class ProductUnitService {
     /**
      * 批量添加商品规格
      */
-
-
-
 
 
 }
