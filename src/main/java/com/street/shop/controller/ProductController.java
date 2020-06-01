@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -112,11 +113,77 @@ public class ProductController {
     }
 
     //修改商品基本信息
+    @ApiOperation("修改商品基本信息")
+    @PostMapping("/updateProduct")
+    public ResponseMessage updateProduct(
+            @ApiParam(value = "令牌")
+            @RequestHeader(ConstDefine.JWT_AUTH_HEADER) String token,
+            @ApiParam(value = "修改的信息")
+            @RequestBody Map<String, Object> updateInfo) {
+        ResponseMessage ack = new ResponseMessage();
+        //根据令牌获取用户信息
+        String userId = tokenService.getUserIdByToken(token);
+        if (userId == null || userId.length() <= 0) {
+            ack.setStatusCode(ConstDefine.GET_USER_ID_BY_TOKEN_FAIL_CODE);
+            ack.setMessage("根据令牌获取用户id失败!");
+            return ack;
+        }
+        //判断人员角色
+        int operatorUserId = 0;
+        try{
+            operatorUserId = Integer.parseInt(userId);
+        }
+        catch(Exception e){
+        }
+        String result = productService.updateProduct(operatorUserId, updateInfo);
+        if (result != null && result.equals(ConstDefine.SUCCESS)) {
+            ack.setStatusCode(ConstDefine.SUCCESS_CODE);
+            ack.setMessage("操作成功!");
+        } else {
+            ack.setStatusCode(ConstDefine.UPDATE_PRODUCT_FAIL_CODE);
+            ack.setMessage(result);
+        }
+        return ack;
+    }
 
+    // 修改价格信息
 
-
-
-
+    @ApiOperation("修改商品价格")
+    @PostMapping("/modifyProductPrice")
+    public ResponseMessage modifyProductPrice(
+            @ApiParam(value = "令牌")
+            @RequestHeader(ConstDefine.JWT_AUTH_HEADER) String token,
+            @ApiParam(value = "商品id")
+            @RequestParam("productId") int productId,
+            @ApiParam(value = "线上价格")
+            @RequestParam("price") int price,
+            @ApiParam(value = "线下价格")
+            @RequestParam("offlinePrice") int offlinePrice) {
+        ResponseMessage ack = new ResponseMessage();
+        //根据令牌获取用户信息
+        String userId = tokenService.getUserIdByToken(token);
+        if (userId == null || userId.length() <= 0) {
+            ack.setStatusCode(ConstDefine.GET_USER_ID_BY_TOKEN_FAIL_CODE);
+            ack.setMessage("根据令牌获取用户id失败!");
+            return ack;
+        }
+        //判断人员角色
+        int operatorUserId = 0;
+        try{
+            operatorUserId = Integer.parseInt(userId);
+        }
+        catch(Exception e){
+        }
+        String result = productService.modifyProductPrice(operatorUserId, productId, price, offlinePrice);
+        if (result != null && result.equals(ConstDefine.SUCCESS)) {
+            ack.setStatusCode(ConstDefine.SUCCESS_CODE);
+            ack.setMessage("操作成功!");
+        } else {
+            ack.setStatusCode(ConstDefine.UPDATE_PRODUCT_FAIL_CODE);
+            ack.setMessage(result);
+        }
+        return ack;
+    }
 
 
     //修改规格信息

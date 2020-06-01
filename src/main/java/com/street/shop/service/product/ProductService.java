@@ -20,9 +20,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.criteria.Predicate;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -503,23 +506,12 @@ public class ProductService {
                 result = "产品id为空!";
                 return result;
             }
-            //商户id
-            int shopId = 0;
-            if (updateInfo.get("shopId") != null) {
-                try {
-                    shopId = Integer.parseInt(updateInfo.get("shopId").toString());
-                } catch (Exception e) {
-                }
-            }
-            if (shopId <= 0) {
-                result = "商户id为空!";
-                return result;
-            }
             Product product = getProductById(productId);
             if (product == null) {
                 result = "产品信息不存在!";
                 return result;
             }
+            int shopId = product.getShopId();
             //唯一编号
             if (updateInfo.get("uniqueCode") != null) {
                 String uniqueCode = updateInfo.get("uniqueCode").toString();
@@ -568,6 +560,7 @@ public class ProductService {
                 }
             }
             //规格信息
+            /*
             boolean productUnitListChange = false;
             if (updateInfo.get("productUnitList") != null) {
                 String productUnitListJson = updateInfo.get("productUnitList").toString();
@@ -613,7 +606,9 @@ public class ProductService {
                         productUnitListChange = true;
                     }
                 }
-            }
+            } */
+
+
             //关键词
             if (updateInfo.get("keyWords") != null) {
                 String keyWordsJson = updateInfo.get("keyWords").toString();
@@ -633,6 +628,8 @@ public class ProductService {
             }
 
             productDao.save(product);
+
+            /*
             if (productUnitListChange) {
                 //修改规格
                 List<ProductUnit> productUnitList = product.getProductUnitList();
@@ -642,12 +639,36 @@ public class ProductService {
                         productUnitService.addProductUnit(productUnit);
                     }
                 }
-            }
+            } */
             result = ConstDefine.SUCCESS;
         } catch (Exception e) {
             result = e.getMessage();
         }
         return result;
+    }
+
+
+    public String modifyProductPrice(int operatorUserId, int productId, int price, int offlinePrice) {
+        String result = "";
+        try {
+            //判断操作人员是否有权限修改
+
+            Product product = getProductById(productId);
+            if (product == null) {
+                result = "产品信息不存在!";
+                return result;
+            }
+            product.setMinPrice(price);
+            product.setMaxPrice(price);
+            product.setMinOfflinePrice(offlinePrice);
+            product.setMaxOfflinePrice(offlinePrice);
+            productDao.save(product);
+            result = ConstDefine.SUCCESS;
+        } catch (Exception e) {
+            result = e.getMessage();
+        }
+        return result;
+
     }
 
     //修改状态
