@@ -5,10 +5,8 @@ import com.street.shop.dao.product.ProductDao;
 import com.street.shop.entity.product.Category;
 import com.street.shop.entity.product.Product;
 import com.street.shop.entity.product.ProductUnit;
-import com.street.shop.pojo.ConstDefine;
-import com.street.shop.pojo.ProductStatus;
-import com.street.shop.pojo.Unit;
-import com.street.shop.pojo.UnitSpec;
+import com.street.shop.pojo.*;
+import com.street.shop.service.user.UserService;
 import com.street.shop.util.ExcelUtil;
 import com.street.shop.util.ProductUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -19,13 +17,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import javax.persistence.criteria.Predicate;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -43,6 +40,9 @@ public class ProductService {
 
     @Autowired
     private ProductUnitService productUnitService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 添加产品
@@ -251,7 +251,7 @@ public class ProductService {
      * @param categoryId  类别id
      * @return
      */
-    public String importProductFromExcelFile(String fileName, InputStream inputStream, int shopId, int categoryId) {
+    public String importProductFromExcelFile(int operatorUserId, String fileName, InputStream inputStream, int shopId, int categoryId) {
         String result = "";
         try {
             if (inputStream == null) {
@@ -277,6 +277,18 @@ public class ProductService {
                 result = "未知的分类categoryId!";
                 return result;
             }
+            //判断操作人员是否有权限修改
+            Set<String> roleSet = userService.getUserRole(operatorUserId);
+            if (roleSet == null || roleSet.size() <= 0) {
+                result = "操作用户角色信息为空!";
+                return result;
+            }
+            if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                    !roleSet.contains(RoleType.SHOP_WAITER)) {
+                result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
+                return result;
+            }
+
             Workbook wb = null;
             if (fileName.endsWith("xls")) {
                 try {
@@ -492,7 +504,16 @@ public class ProductService {
         }
         try {
             //判断操作人员是否有权限修改
-
+            Set<String> roleSet = userService.getUserRole(operatorUserId);
+            if (roleSet == null || roleSet.size() <= 0) {
+                result = "操作用户角色信息为空!";
+                return result;
+            }
+            if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                    !roleSet.contains(RoleType.SHOP_WAITER)) {
+                result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
+                return result;
+            }
 
             //产品id
             int productId = 0;
@@ -559,6 +580,7 @@ public class ProductService {
                     product.setLogo(logo);
                 }
             }
+
             //规格信息
             /*
             boolean productUnitListChange = false;
@@ -652,6 +674,16 @@ public class ProductService {
         String result = "";
         try {
             //判断操作人员是否有权限修改
+            Set<String> roleSet = userService.getUserRole(operatorUserId);
+            if (roleSet == null || roleSet.size() <= 0) {
+                result = "操作用户角色信息为空!";
+                return result;
+            }
+            if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                    !roleSet.contains(RoleType.SHOP_WAITER)) {
+                result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
+                return result;
+            }
 
             Product product = getProductById(productId);
             if (product == null) {
@@ -679,27 +711,48 @@ public class ProductService {
             result = "产品id为空!";
             return result;
         }
-        Product product = getProductById(productId);
-        if (product == null) {
-            result = "产品信息不存在!";
+        //判断操作人员权限信息
+        Set<String> roleSet = userService.getUserRole(operatorUserId);
+        if (roleSet == null || roleSet.size() <= 0) {
+            result = "操作用户角色信息为空!";
             return result;
         }
-        //判断操作人员的权限
-        if (product.getStatus() == ProductStatus.FORBIDDEN) {
-            result = "此商品已被管理员禁用, 请联系客服!";
+        if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                !roleSet.contains(RoleType.SHOP_WAITER)) {
+            result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
             return result;
         }
-        if (product.getLogo() == null ||
-                product.getLogo().length() <= 0) {
-            result = "商品没有缩略图暂不能上架!";
-            return result;
-        }
-        try {
+
+        for (int i = 0; i < 8; i++) {
+            Product product = getProductById(productId);
+            if (product == null) {
+                result = "产品信息不存在!";
+                return result;
+            }
+            //判断操作人员的权限
+            if (product.getStatus() == ProductStatus.FORBIDDEN) {
+                result = "此商品已被管理员禁用, 请联系客服!";
+                return result;
+            }
             product.setStatus(ProductStatus.ONLINE);
-            productDao.save(product);
-            result = ConstDefine.SUCCESS;
-        } catch (Exception e) {
-            result = e.getMessage();
+            try {
+                productDao.save(product);
+                result = ConstDefine.SUCCESS;
+                //退出循环
+                return result;
+            } catch (ObjectOptimisticLockingFailureException e) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception ex) {
+                }
+                //继续下次尝试
+                continue;
+            } catch (Exception e) {
+                //发生其他的错误
+                //直接退出
+                result = e.getMessage();
+                break;
+            }
         }
         return result;
     }
@@ -712,30 +765,130 @@ public class ProductService {
             result = "产品id为空!";
             return result;
         }
-        Product product = getProductById(productId);
-        if (product == null) {
-            result = "产品信息不存在!";
-            return result;
-        }
         //判断操作人员的权限
-        if (product.getStatus() == ProductStatus.FORBIDDEN) {
-            result = "此商品已被管理员禁用, 请联系客服!";
+        //只有店铺管理者和营业员可以修改
+        Set<String> roleSet = userService.getUserRole(operatorUserId);
+        if (roleSet == null || roleSet.size() <= 0) {
+            result = "操作用户角色信息为空!";
             return result;
         }
-        try {
+        if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                !roleSet.contains(RoleType.SHOP_WAITER)) {
+            result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
+            return result;
+        }
+
+        for (int i = 0; i < 8; i++) {
+            Product product = getProductById(productId);
+            if (product == null) {
+                result = "产品信息不存在!";
+                return result;
+            }
+            if (product.getStatus() == ProductStatus.FORBIDDEN) {
+                result = "此商品已被管理员禁用, 请联系客服!";
+                return result;
+            }
             product.setStatus(ProductStatus.OFFLINE);
-            productDao.save(product);
-            result = ConstDefine.SUCCESS;
-        } catch (Exception e) {
-            result = e.getMessage();
+            try {
+                productDao.save(product);
+                //记录修改日志
+
+                result = ConstDefine.SUCCESS;
+                //退出循环
+                return result;
+            } catch (ObjectOptimisticLockingFailureException e) {
+                //锁异常
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception ex) {
+                }
+                //继续下次尝试
+                continue;
+            } catch (Exception e) {
+                //发生其他的错误
+                //直接退出
+                result = e.getMessage();
+                break;
+            }
         }
         return result;
     }
 
+
+    /**
+     * 设置商品类型
+     *
+     * @param productId
+     * @param type
+     * @return
+     */
+    public String setProductType(int operatorUserId, int productId, int type) {
+        String result = "";
+        if (productId <= 0) {
+            result = "产品id为空!";
+            return result;
+        }
+        if (type != ProductType.SEASON_CHANGE &&
+                type != ProductType.BEST_SELL &&
+                type != ProductType.BREAK_CODE &&
+                type != ProductType.NEW &&
+                type != ProductType.NONE) {
+            result = "商品类型不正确!";
+            return result;
+        }
+        //判断操作人员的权限
+        //只有店铺管理者和营业员可以修改
+        Set<String> roleSet = userService.getUserRole(operatorUserId);
+        if (roleSet == null || roleSet.size() <= 0) {
+            result = "操作用户角色信息为空!";
+            return result;
+        }
+        if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                !roleSet.contains(RoleType.SHOP_WAITER)) {
+            result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
+            return result;
+        }
+
+        for (int i = 0; i < 8; i++) {
+            Product product = getProductById(productId);
+            if (product == null) {
+                result = "产品信息不存在!";
+                return result;
+            }
+            if (product.getStatus() == ProductStatus.FORBIDDEN) {
+                result = "此商品已被管理员禁用, 请联系客服!";
+                return result;
+            }
+            product.setType(type);
+            try {
+                productDao.save(product);
+                //记录修改日志
+                result = ConstDefine.SUCCESS;
+                //退出循环
+                return result;
+            } catch (ObjectOptimisticLockingFailureException e) {
+                //锁异常
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception ex) {
+                }
+                //继续下次尝试
+                continue;
+            } catch (Exception e) {
+                //发生其他的错误
+                //直接退出
+                result = e.getMessage();
+                break;
+            }
+        }
+        return result;
+    }
+
+
     /**
      * 给商品批量添加规格信息
      */
-    public String addProductUnitBatch(int productId, List<Unit> unitList) {
+    public String addProductUnitBatch(int operatorUserId, int productId, List<Unit> unitList) {
         String result = "";
         if (productId <= 0) {
             result = "商品id为空!";
@@ -743,6 +896,16 @@ public class ProductService {
         }
         if (unitList == null || unitList.size() <= 0) {
             result = "商品规格信息为空!";
+            return result;
+        }
+        Set<String> roleSet = userService.getUserRole(operatorUserId);
+        if (roleSet == null || roleSet.size() <= 0) {
+            result = "操作用户角色信息为空!";
+            return result;
+        }
+        if (!roleSet.contains(RoleType.SHOP_ADMIN) &&
+                !roleSet.contains(RoleType.SHOP_WAITER)) {
+            result = "用户没有操作权限, 只有商家管理员和营业员具备操作权限!";
             return result;
         }
         try {
@@ -784,6 +947,7 @@ public class ProductService {
                     productUnitService.addProductUnit(productUnit);
                 }
             }
+
             //修改最后的价格
             product = getProductById(productId);
             if (product != null) {

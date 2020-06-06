@@ -8,6 +8,8 @@ import com.street.shop.pojo.DiscountType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -24,7 +26,6 @@ public class DiscountService {
     /**
      * 添加商品优惠
      */
-
     public String addProductDiscount(Discount discount) {
         String result = "";
         if (discount == null) {
@@ -69,7 +70,7 @@ public class DiscountService {
         try {
             discountDao.save(discount);
             int discountId = discount.getId();
-            product.setDiscountId(discountId);
+            product.setDiscountId(discountId);      //设置商品的优惠信息
             productService.addProduct(product);
             result = ConstDefine.SUCCESS;
         } catch (Exception e) {
@@ -117,5 +118,36 @@ public class DiscountService {
         }
         return result;
     }
+
+
+    /**
+     * 获取折扣价格
+     *
+     * @param discount 折扣
+     * @param price    原价
+     * @return
+     */
+    public int getDiscoutPrice(Discount discount, int price) {
+        int discountPrice = price;
+        if (discount == null) {
+            return discountPrice;
+        }
+        Date today = new Date();
+        if (discount.getStartTime() != null &&
+                discount.getEndTime() != null) {
+            if (today.compareTo(discount.getStartTime()) < 0 ||
+                    today.compareTo(discount.getEndTime()) > 0) {
+                return discountPrice;
+            }
+        }
+        if (discount.getType() == DiscountType.PRICE) {
+            discountPrice = discount.getValue();
+        } else {
+            discountPrice = ((price * discount.getValue()) / 100);
+        }
+        return discountPrice;
+    }
+
+
 
 }

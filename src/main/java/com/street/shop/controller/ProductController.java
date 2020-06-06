@@ -38,6 +38,7 @@ public class ProductController {
     public ResponseMessage addProduct(
             @ApiParam(value = "令牌")
             @RequestHeader(ConstDefine.JWT_AUTH_HEADER) String token,
+
             @ApiParam(value = "商品信息")
             @RequestBody ProductVO product) {
         ResponseMessage ack = new ResponseMessage();
@@ -87,6 +88,7 @@ public class ProductController {
     public ResponseMessage addProductUnit(
             @ApiParam(value = "令牌")
             @RequestHeader(ConstDefine.JWT_AUTH_HEADER) String token,
+
             @ApiParam(value = "商品id")
             @PathVariable int productId,
             @ApiParam(value = "商品规格信息")
@@ -186,6 +188,7 @@ public class ProductController {
     }
 
 
+
     //修改规格信息
 
 
@@ -205,6 +208,9 @@ public class ProductController {
 
 
     //获取规格详情
+
+
+
 
 
 

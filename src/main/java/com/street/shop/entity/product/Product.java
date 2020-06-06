@@ -86,6 +86,11 @@ public class Product implements Serializable {
     @Transient
     private List<ProductUnit> productUnitList = new ArrayList<>();
 
+    //版本(乐观锁版本)
+    @Version
+    @Column(name = "version", columnDefinition = "INT not null default 0 ")
+    private int version;
+
     //添加时间
     @Column(name = "create_at", columnDefinition = "datetime not null ")
     private Date createAt;
