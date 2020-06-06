@@ -103,7 +103,14 @@ public class ProductController {
             return ack;
         }
         //判断人员角色
-        String result = productService.addProductUnitBatch(productId, unitList);
+        int operatorUserId = 0;
+        try{
+            operatorUserId = Integer.parseInt(userId);
+        }
+        catch(Exception e){
+        }
+        //判断人员角色
+        String result = productService.addProductUnitBatch(operatorUserId, productId, unitList);
         if (result != null && result.equals(ConstDefine.SUCCESS)) {
             ack.setStatusCode(ConstDefine.SUCCESS_CODE);
             ack.setMessage("操作成功!");
